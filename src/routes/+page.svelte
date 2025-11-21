@@ -1,8 +1,24 @@
 <script lang="ts">
 	import BusinessCard from '$lib/components/BusinessCard.svelte';
+	import ParticleField from '$lib/components/ParticleField.svelte';
+	import { themeState } from '$lib/stores/theme.svelte';
+
+	// Map themes to particle colors
+	const themeColors = {
+		plush: 'rgb(233, 30, 140)',
+		sombre: 'rgb(102, 102, 102)',
+		brilliant: 'rgb(0, 102, 255)',
+		luminous: 'rgb(255, 204, 0)'
+	};
+
+	$effect(() => {
+		// Trigger reactivity when theme changes
+		themeState.current;
+	});
 </script>
 
 <div class="home-container">
+	<ParticleField color={themeColors[themeState.current]} />
 	<div class="hero-section">
 		<BusinessCard />
 		<div class="hero-text">
@@ -16,12 +32,16 @@
 
 <style>
 	.home-container {
+		position: relative;
 		max-width: 1200px;
 		margin: 0 auto;
 		padding: 2rem;
+		min-height: calc(100vh - 100px);
 	}
 
 	.hero-section {
+		position: relative;
+		z-index: 1;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
