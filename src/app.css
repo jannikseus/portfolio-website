@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base typography */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	/* Base colors for themes */
+	--color-plush-bg: #fef3f8;
+	--color-plush-text: #2d1b2e;
+	--color-plush-accent: #e91e8c;
+	--color-plush-secondary: #f6c9dd;
+	
+	--color-sombre-bg: #1a1a1a;
+	--color-sombre-text: #e0e0e0;
+	--color-sombre-accent: #666666;
+	--color-sombre-secondary: #2d2d2d;
+	
+	--color-brilliant-bg: #ffffff;
+	--color-brilliant-text: #111111;
+	--color-brilliant-accent: #0066ff;
+	--color-brilliant-secondary: #e6f0ff;
+	
+	--color-luminous-bg: #fffef5;
+	--color-luminous-text: #1a1815;
+	--color-luminous-accent: #ffcc00;
+	--color-luminous-secondary: #fff9d9;
+}
+
+body {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+	line-height: 1.6;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme styles - using data attributes */
+[data-theme="plush"] {
+	background-color: var(--color-plush-bg);
+	color: var(--color-plush-text);
+}
+
+[data-theme="sombre"] {
+	background-color: var(--color-sombre-bg);
+	color: var(--color-sombre-text);
+}
+
+[data-theme="brilliant"] {
+	background-color: var(--color-brilliant-bg);
+	color: var(--color-brilliant-text);
+}
+
+[data-theme="luminous"] {
+	background-color: var(--color-luminous-bg);
+	color: var(--color-luminous-text);
+}
+
+/* Smooth animations */
+@media (prefers-reduced-motion: no-preference) {
+	* {
+		transition-property: color, background-color, border-color, transform;
+		transition-duration: 0.2s;
+		transition-timing-function: ease-in-out;
+	}
+}
