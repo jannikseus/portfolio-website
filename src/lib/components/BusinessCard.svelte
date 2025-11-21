@@ -80,22 +80,22 @@
 		position: relative;
 	}
 
-	[data-theme='plush'] .card-content {
+	:global([data-theme='plush']) .card-content {
 		background: linear-gradient(135deg, var(--color-plush-secondary), var(--color-plush-bg));
 		border: 2px solid var(--color-plush-accent);
 	}
 
-	[data-theme='sombre'] .card-content {
+	:global([data-theme='sombre']) .card-content {
 		background: linear-gradient(135deg, var(--color-sombre-secondary), var(--color-sombre-bg));
 		border: 2px solid var(--color-sombre-accent);
 	}
 
-	[data-theme='brilliant'] .card-content {
+	:global([data-theme='brilliant']) .card-content {
 		background: linear-gradient(135deg, var(--color-brilliant-secondary), var(--color-brilliant-bg));
 		border: 2px solid var(--color-brilliant-accent);
 	}
 
-	[data-theme='luminous'] .card-content {
+	:global([data-theme='luminous']) .card-content {
 		background: linear-gradient(135deg, var(--color-luminous-secondary), var(--color-luminous-bg));
 		border: 2px solid var(--color-luminous-accent);
 	}
@@ -111,19 +111,19 @@
 		letter-spacing: -0.02em;
 	}
 
-	[data-theme='plush'] .name {
+	:global([data-theme='plush']) .name {
 		color: var(--color-plush-accent);
 	}
 
-	[data-theme='sombre'] .name {
+	:global([data-theme='sombre']) .name {
 		color: var(--color-sombre-text);
 	}
 
-	[data-theme='brilliant'] .name {
+	:global([data-theme='brilliant']) .name {
 		color: var(--color-brilliant-accent);
 	}
 
-	[data-theme='luminous'] .name {
+	:global([data-theme='luminous']) .name {
 		color: var(--color-luminous-accent);
 	}
 

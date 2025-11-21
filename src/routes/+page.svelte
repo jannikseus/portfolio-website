@@ -1,19 +1,8 @@
 <script lang="ts">
 	import BusinessCard from '$lib/components/BusinessCard.svelte';
-	import ParticleField from '$lib/components/ParticleField.svelte';
-	import { themeState } from '$lib/stores/theme.svelte';
-
-	// Map themes to particle colors
-	const themeColors = {
-		plush: 'rgb(233, 30, 140)',
-		sombre: 'rgb(102, 102, 102)',
-		brilliant: 'rgb(0, 102, 255)',
-		luminous: 'rgb(255, 204, 0)'
-	};
 </script>
 
 <div class="home-container">
-	<ParticleField color={themeColors[themeState.current]} />
 	<div class="hero-section">
 		<BusinessCard />
 		<div class="hero-text">
@@ -57,19 +46,19 @@
 		letter-spacing: -0.02em;
 	}
 
-	[data-theme='plush'] .hero-title {
+	:global([data-theme='plush']) .hero-title {
 		color: var(--color-plush-accent);
 	}
 
-	[data-theme='sombre'] .hero-title {
+	:global([data-theme='sombre']) .hero-title {
 		color: var(--color-sombre-text);
 	}
 
-	[data-theme='brilliant'] .hero-title {
+	:global([data-theme='brilliant']) .hero-title {
 		color: var(--color-brilliant-accent);
 	}
 
-	[data-theme='luminous'] .hero-title {
+	:global([data-theme='luminous']) .hero-title {
 		color: var(--color-luminous-accent);
 	}
 
