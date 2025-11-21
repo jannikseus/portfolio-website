@@ -255,14 +255,18 @@
 			const [r, g, b] = parseRGBColor(color);
 
 			for (const particle of particleList) {
-				const x = ~~particle.currentX;
-				const y = ~~particle.currentY;
-				const pixelIndex = (x + y * canvas.width) * 4;
+				const x = Math.floor(particle.currentX);
+				const y = Math.floor(particle.currentY);
+				
+				// Bounds check to prevent out-of-bounds array access
+				if (x >= 0 && x < canvas.width && y >= 0 && y < canvas.height) {
+					const pixelIndex = (x + y * canvas.width) * 4;
 
-				pixelArray[pixelIndex] = r;
-				pixelArray[pixelIndex + 1] = g;
-				pixelArray[pixelIndex + 2] = b;
-				pixelArray[pixelIndex + 3] = 100;
+					pixelArray[pixelIndex] = r;
+					pixelArray[pixelIndex + 1] = g;
+					pixelArray[pixelIndex + 2] = b;
+					pixelArray[pixelIndex + 3] = 100;
+				}
 			}
 
 			ctx.putImageData(imageData, 0, 0);

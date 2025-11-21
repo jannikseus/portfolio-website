@@ -10,11 +10,6 @@
 		brilliant: 'rgb(0, 102, 255)',
 		luminous: 'rgb(255, 204, 0)'
 	};
-
-	$effect(() => {
-		// Trigger reactivity when theme changes
-		themeState.current;
-	});
 </script>
 
 <div class="home-container">
