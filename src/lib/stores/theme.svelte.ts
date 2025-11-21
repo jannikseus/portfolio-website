@@ -7,9 +7,10 @@ class ThemeState {
 
 	constructor() {
 		if (browser) {
-			const saved = localStorage.getItem('theme') as Theme | null;
-			if (saved) {
-				this.current = saved;
+			const saved = localStorage.getItem('theme');
+			const validThemes: Theme[] = ['plush', 'sombre', 'brilliant', 'luminous'];
+			if (saved && validThemes.includes(saved as Theme)) {
+				this.current = saved as Theme;
 			}
 			this.applyTheme();
 		}

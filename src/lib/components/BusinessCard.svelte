@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
+	const MAX_ROTATION_DEGREES = 15;
+
 	let cardElement: HTMLDivElement;
 	let rotateX = $state(0);
 	let rotateY = $state(0);
@@ -17,8 +19,8 @@
 		const centerY = rect.height / 2;
 
 		// Calculate rotation based on mouse position
-		const rotateYValue = ((x - centerX) / centerX) * 15;
-		const rotateXValue = ((centerY - y) / centerY) * 15;
+		const rotateYValue = ((x - centerX) / centerX) * MAX_ROTATION_DEGREES;
+		const rotateXValue = ((centerY - y) / centerY) * MAX_ROTATION_DEGREES;
 
 		rotateX = rotateXValue;
 		rotateY = rotateYValue;
