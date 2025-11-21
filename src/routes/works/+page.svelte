@@ -17,7 +17,7 @@
 					<span>MongoDB</span>
 					<span>Stripe</span>
 				</div>
-				<a href="#" class="work-link">View Project →</a>
+				<span class="work-link">Example Project</span>
 			</article>
 
 			<article class="work-item">
@@ -34,7 +34,7 @@
 					<span>TailwindCSS</span>
 					<span>WebSocket</span>
 				</div>
-				<a href="#" class="work-link">View Project →</a>
+				<span class="work-link">Example Project</span>
 			</article>
 
 			<article class="work-item">
@@ -51,7 +51,7 @@
 					<span>REST API</span>
 					<span>Chart.js</span>
 				</div>
-				<a href="#" class="work-link">View Project →</a>
+				<span class="work-link">Example Project</span>
 			</article>
 
 			<article class="work-item">
@@ -68,7 +68,7 @@
 					<span>PostgreSQL</span>
 					<span>Prisma</span>
 				</div>
-				<a href="#" class="work-link">View Project →</a>
+				<span class="work-link">Example Project</span>
 			</article>
 
 			<article class="work-item">
@@ -85,7 +85,7 @@
 					<span>D3.js</span>
 					<span>Express</span>
 				</div>
-				<a href="#" class="work-link">View Project →</a>
+				<span class="work-link">Example Project</span>
 			</article>
 
 			<article class="work-item">
@@ -102,7 +102,7 @@
 					<span>Firebase</span>
 					<span>Redux</span>
 				</div>
-				<a href="#" class="work-link">View Project →</a>
+				<span class="work-link">Example Project</span>
 			</article>
 		</div>
 	</div>
@@ -258,16 +258,12 @@
 	}
 
 	.work-link {
-		text-decoration: none;
 		font-weight: 500;
 		display: inline-flex;
 		align-items: center;
 		margin-top: auto;
-		transition: transform 0.2s ease;
-	}
-
-	.work-link:hover {
-		transform: translateX(4px);
+		opacity: 0.7;
+		font-size: 0.9rem;
 	}
 
 	[data-theme='plush'] .work-link {

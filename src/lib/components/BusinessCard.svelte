@@ -37,8 +37,8 @@
 
 <div
 	class="card-container"
-	role="button"
-	tabindex="0"
+	role="img"
+	aria-label="Business card with contact information"
 	bind:this={cardElement}
 	onmousemove={handleMouseMove}
 	onmouseenter={handleMouseEnter}
