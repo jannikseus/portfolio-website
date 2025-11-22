@@ -83,16 +83,7 @@
 			const rect = container.getBoundingClientRect();
 			mouseX = e.clientX - rect.left;
 			mouseY = e.clientY - rect.top;
-		};
-
-		const handleMouseEnter = () => {
-			if (isMobile()) return;
 			isMouseOverField = true;
-		};
-
-		const handleMouseLeave = () => {
-			if (isMobile()) return;
-			isMouseOverField = false;
 		};
 
 		/**
@@ -264,22 +255,19 @@
 		// Initialize system and set up event listeners
 		init();
 
-		container.addEventListener('mousemove', updateMousePosition);
-		container.addEventListener('mouseenter', handleMouseEnter);
-		container.addEventListener('mouseleave', handleMouseLeave);
+		// Use document-level mouse events to capture movement across the entire page
+		document.addEventListener('mousemove', updateMousePosition);
 		window.addEventListener('resize', resizeCanvas);
 
 		// Cleanup
 		return () => {
 			cancelAnimationFrame(animationFrameId);
-			container.removeEventListener('mousemove', updateMousePosition);
-			container.removeEventListener('mouseenter', handleMouseEnter);
-			container.removeEventListener('mouseleave', handleMouseLeave);
+			document.removeEventListener('mousemove', updateMousePosition);
 			window.removeEventListener('resize', resizeCanvas);
 		};
 	});
 </script>
 
-<div bind:this={containerElement} class="absolute inset-0" style="pointer-events: auto;">
-	<canvas bind:this={canvasElement} class="w-full h-full" style="pointer-events: none;" />
+<div bind:this={containerElement} class="absolute inset-0" style="pointer-events: none;">
+	<canvas bind:this={canvasElement} class="w-full h-full"></canvas>
 </div>

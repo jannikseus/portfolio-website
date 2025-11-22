@@ -40,19 +40,19 @@
 		backdrop-filter: blur(10px);
 	}
 
-	[data-theme='plush'] .nav-container {
+	:global([data-theme='plush']) .nav-container {
 		background: rgba(254, 243, 248, 0.8);
 	}
 
-	[data-theme='sombre'] .nav-container {
+	:global([data-theme='sombre']) .nav-container {
 		background: rgba(26, 26, 26, 0.8);
 	}
 
-	[data-theme='brilliant'] .nav-container {
+	:global([data-theme='brilliant']) .nav-container {
 		background: rgba(255, 255, 255, 0.8);
 	}
 
-	[data-theme='luminous'] .nav-container {
+	:global([data-theme='luminous']) .nav-container {
 		background: rgba(255, 254, 245, 0.8);
 	}
 
@@ -79,42 +79,42 @@
 		position: relative;
 	}
 
-	[data-theme='plush'] .nav-link {
+	:global([data-theme='plush']) .nav-link {
 		color: var(--color-plush-text);
 	}
 
-	[data-theme='sombre'] .nav-link {
+	:global([data-theme='sombre']) .nav-link {
 		color: var(--color-sombre-text);
 	}
 
-	[data-theme='brilliant'] .nav-link {
+	:global([data-theme='brilliant']) .nav-link {
 		color: var(--color-brilliant-text);
 	}
 
-	[data-theme='luminous'] .nav-link {
+	:global([data-theme='luminous']) .nav-link {
 		color: var(--color-luminous-text);
 	}
 
-	[data-theme='plush'] .nav-link:hover,
-	[data-theme='plush'] .nav-link.active {
+	:global([data-theme='plush']) .nav-link:hover,
+	:global([data-theme='plush']) .nav-link.active {
 		background-color: var(--color-plush-secondary);
 		color: var(--color-plush-accent);
 	}
 
-	[data-theme='sombre'] .nav-link:hover,
-	[data-theme='sombre'] .nav-link.active {
+	:global([data-theme='sombre']) .nav-link:hover,
+	:global([data-theme='sombre']) .nav-link.active {
 		background-color: var(--color-sombre-secondary);
 		color: var(--color-sombre-text);
 	}
 
-	[data-theme='brilliant'] .nav-link:hover,
-	[data-theme='brilliant'] .nav-link.active {
+	:global([data-theme='brilliant']) .nav-link:hover,
+	:global([data-theme='brilliant']) .nav-link.active {
 		background-color: var(--color-brilliant-secondary);
 		color: var(--color-brilliant-accent);
 	}
 
-	[data-theme='luminous'] .nav-link:hover,
-	[data-theme='luminous'] .nav-link.active {
+	:global([data-theme='luminous']) .nav-link:hover,
+	:global([data-theme='luminous']) .nav-link.active {
 		background-color: var(--color-luminous-secondary);
 		color: var(--color-luminous-accent);
 	}

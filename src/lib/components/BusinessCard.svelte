@@ -66,6 +66,7 @@
 		cursor: pointer;
 		transition: transform 0.1s ease-out;
 		transform-style: preserve-3d;
+		pointer-events: auto;
 	}
 
 	.card-content {
