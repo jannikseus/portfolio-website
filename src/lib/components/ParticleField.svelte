@@ -81,9 +81,17 @@
 		const updateMousePosition = (e: MouseEvent) => {
 			if (isMobile()) return;
 			const rect = container.getBoundingClientRect();
-			mouseX = e.clientX - rect.left;
-			mouseY = e.clientY - rect.top;
-			isMouseOverField = true;
+			const x = e.clientX - rect.left;
+			const y = e.clientY - rect.top;
+			
+			// Check if mouse is within container bounds
+			if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+				mouseX = x;
+				mouseY = y;
+				isMouseOverField = true;
+			} else {
+				isMouseOverField = false;
+			}
 		};
 
 		/**
