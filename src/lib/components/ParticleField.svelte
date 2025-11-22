@@ -254,7 +254,7 @@
 					pixelArray[pixelIndex] = r;
 					pixelArray[pixelIndex + 1] = g;
 					pixelArray[pixelIndex + 2] = b;
-					pixelArray[pixelIndex + 3] = 100;
+					pixelArray[pixelIndex + 3] = 180; // Increased opacity for better visibility
 				}
 			}
 
@@ -280,6 +280,6 @@
 	});
 </script>
 
-<div bind:this={containerElement} class="absolute inset-0 pointer-events-none">
-	<canvas bind:this={canvasElement} class="w-full h-full pointer-events-auto" />
+<div bind:this={containerElement} class="absolute inset-0" style="pointer-events: auto;">
+	<canvas bind:this={canvasElement} class="w-full h-full" style="pointer-events: none;" />
 </div>

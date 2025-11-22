@@ -31,27 +31,47 @@
 	}
 
 	select {
-		background: transparent;
 		cursor: pointer;
+		transition: all 0.2s ease;
 	}
 	
-	[data-theme='plush'] select {
+	:global([data-theme='plush']) select {
 		border-color: var(--color-plush-accent);
+		color: var(--color-plush-text);
+		background-color: var(--color-plush-secondary);
+	}
+	
+	:global([data-theme='sombre']) select {
+		border-color: var(--color-sombre-accent);
+		color: var(--color-sombre-text);
+		background-color: var(--color-sombre-secondary);
+	}
+	
+	:global([data-theme='brilliant']) select {
+		border-color: var(--color-brilliant-accent);
+		color: var(--color-brilliant-text);
+		background-color: var(--color-brilliant-secondary);
+	}
+	
+	:global([data-theme='luminous']) select {
+		border-color: var(--color-luminous-accent);
+		color: var(--color-luminous-text);
+		background-color: var(--color-luminous-secondary);
+	}
+
+	:global([data-theme='plush']) label {
 		color: var(--color-plush-text);
 	}
 	
-	[data-theme='sombre'] select {
-		border-color: var(--color-sombre-accent);
+	:global([data-theme='sombre']) label {
 		color: var(--color-sombre-text);
 	}
 	
-	[data-theme='brilliant'] select {
-		border-color: var(--color-brilliant-accent);
+	:global([data-theme='brilliant']) label {
 		color: var(--color-brilliant-text);
 	}
 	
-	[data-theme='luminous'] select {
-		border-color: var(--color-luminous-accent);
+	:global([data-theme='luminous']) label {
 		color: var(--color-luminous-text);
 	}
 </style>
