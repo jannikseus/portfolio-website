@@ -1,34 +1,31 @@
 <script lang="ts">
 	import { themeState, type Theme } from '$lib/stores/theme.svelte';
 
-	// Theme mapping:
+	// Theme mapping (corrected):
 	// brilliant = light + colorful (blue)
-	// plush = light + colorful (pink) - alternate colorful
+	// plush = light + minimal (pink)
 	// sombre = dark + minimal (gray)
-	// luminous = light + minimal (yellow)
-	const isDark = $derived(themeState.current === 'sombre');
-	const isColorful = $derived(themeState.current === 'plush' || themeState.current === 'brilliant');
+	// luminous = dark + colorful (yellow)
+	const isDark = $derived(themeState.current === 'sombre' || themeState.current === 'luminous');
+	const isColorful = $derived(themeState.current === 'brilliant' || themeState.current === 'luminous');
 
 	function toggleDark() {
 		if (isDark) {
 			// Switch to light - preserve colorful/minimal preference
-			themeState.set(isColorful ? 'brilliant' : 'luminous');
+			themeState.set(isColorful ? 'brilliant' : 'plush');
 		} else {
-			// Switch to dark
-			themeState.set('sombre');
+			// Switch to dark - preserve colorful/minimal preference
+			themeState.set(isColorful ? 'luminous' : 'sombre');
 		}
 	}
 
 	function toggleColorful() {
-		// Only works on light themes
-		if (!isDark) {
-			if (isColorful) {
-				// Switch to minimal
-				themeState.set('luminous');
-			} else {
-				// Switch to colorful
-				themeState.set('brilliant');
-			}
+		if (isColorful) {
+			// Switch to minimal - preserve dark/light preference
+			themeState.set(isDark ? 'sombre' : 'plush');
+		} else {
+			// Switch to colorful - preserve dark/light preference
+			themeState.set(isDark ? 'luminous' : 'brilliant');
 		}
 	}
 </script>
