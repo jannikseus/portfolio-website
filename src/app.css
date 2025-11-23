@@ -8,7 +8,7 @@
 }
 
 :root {
-	/* Base colors for themes */
+	/* Base colors for themes - updated to match reference */
 	--color-plush-bg: #fef3f8;
 	--color-plush-text: #2d1b2e;
 	--color-plush-accent: #e91e8c;
@@ -16,18 +16,20 @@
 	
 	--color-sombre-bg: #1a1a1a;
 	--color-sombre-text: #e0e0e0;
-	--color-sombre-accent: #666666;
+	--color-sombre-accent: #808080;
 	--color-sombre-secondary: #2d2d2d;
 	
+	/* Brilliant theme - light colorful with vibrant colors */
 	--color-brilliant-bg: #ffffff;
 	--color-brilliant-text: #111111;
-	--color-brilliant-accent: #0066ff;
+	--color-brilliant-accent: rgb(57,125,173); /* bluish from reference */
 	--color-brilliant-secondary: #e6f0ff;
 	
-	--color-luminous-bg: #fffef5;
-	--color-luminous-text: #1a1815;
-	--color-luminous-accent: #ffcc00;
-	--color-luminous-secondary: #fff9d9;
+	/* Luminous theme - dark colorful with bright pastels */
+	--color-luminous-bg: #1a1a1a;
+	--color-luminous-text: #e0e0e0;
+	--color-luminous-accent: rgb(255,255,186); /* banana from reference */
+	--color-luminous-secondary: #2d2d2d;
 }
 
 body {

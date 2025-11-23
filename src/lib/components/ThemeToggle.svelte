@@ -31,6 +31,7 @@
 </script>
 
 <div class="theme-toggle">
+	<span class="theme-label">Theme:</span>
 	<button
 		onclick={toggleDark}
 		class="toggle-button"
@@ -52,43 +53,24 @@
 <style>
 	.theme-toggle {
 		display: flex;
-		gap: 0.5rem;
-		padding: 0.75rem;
-		background: rgba(255, 255, 255, 0.1);
-		backdrop-filter: blur(10px);
-		border-radius: 12px;
-		border: 2px solid;
+		gap: 1rem;
+		align-items: center;
 	}
 
-	:global([data-theme='plush']) .theme-toggle {
-		border-color: var(--color-plush-accent);
-		background: rgba(254, 243, 248, 0.9);
-	}
-
-	:global([data-theme='sombre']) .theme-toggle {
-		border-color: var(--color-sombre-accent);
-		background: rgba(26, 26, 26, 0.9);
-	}
-
-	:global([data-theme='brilliant']) .theme-toggle {
-		border-color: var(--color-brilliant-accent);
-		background: rgba(255, 255, 255, 0.9);
-	}
-
-	:global([data-theme='luminous']) .theme-toggle {
-		border-color: var(--color-luminous-accent);
-		background: rgba(255, 254, 245, 0.9);
+	.theme-label {
+		font-size: 0.875rem;
+		font-weight: 500;
+		opacity: 0.8;
 	}
 
 	.toggle-button {
-		padding: 0.75rem 1.25rem;
-		border-radius: 8px;
-		border: 2px solid transparent;
+		padding: 0.5rem 0.75rem;
+		border-radius: 6px;
+		border: none;
 		background: transparent;
 		cursor: pointer;
 		font-size: 0.875rem;
-		font-weight: 600;
-		letter-spacing: 0.025em;
+		font-weight: 500;
 		transition: all 0.2s ease;
 		display: flex;
 		align-items: center;
@@ -97,11 +79,13 @@
 	}
 
 	.toggle-button:hover {
-		transform: scale(1.1);
+		opacity: 0.7;
 	}
 
 	.toggle-button.active {
-		border-color: currentColor;
+		font-weight: 600;
+		text-decoration: underline;
+		text-underline-offset: 4px;
 	}
 
 	:global([data-theme='plush']) .toggle-button {
@@ -118,21 +102,5 @@
 
 	:global([data-theme='luminous']) .toggle-button {
 		color: var(--color-luminous-accent);
-	}
-
-	:global([data-theme='plush']) .toggle-button.active {
-		background-color: var(--color-plush-secondary);
-	}
-
-	:global([data-theme='sombre']) .toggle-button.active {
-		background-color: var(--color-sombre-secondary);
-	}
-
-	:global([data-theme='brilliant']) .toggle-button.active {
-		background-color: var(--color-brilliant-secondary);
-	}
-
-	:global([data-theme='luminous']) .toggle-button.active {
-		background-color: var(--color-luminous-secondary);
 	}
 </style>
