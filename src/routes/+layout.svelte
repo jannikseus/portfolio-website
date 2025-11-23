@@ -21,17 +21,49 @@
 	<title>Portfolio</title>
 </svelte:head>
 
-<div data-theme={themeState.current} class="min-h-screen transition-colors duration-300 layout-wrapper">
-	<ParticleField color={themeColors[themeState.current]} />
-	<Navigation />
-	<main class="main-content">
-		{@render children()}
-	</main>
+<div data-theme={themeState.current} class="page-background">
+	<div class="bordered-container">
+		<ParticleField color={themeColors[themeState.current]} />
+		<Navigation />
+		<main class="main-content">
+			{@render children()}
+		</main>
+	</div>
 </div>
 
 <style>
-	.layout-wrapper {
+	.page-background {
+		min-height: 100vh;
+		padding: 2rem;
+		transition: background-color 0.3s ease;
+	}
+
+	.bordered-container {
 		position: relative;
+		min-height: calc(100vh - 4rem);
+		border: 2px solid;
+		border-radius: 12px;
+		overflow: hidden;
+	}
+
+	:global([data-theme='plush']) .bordered-container {
+		border-color: var(--color-plush-accent);
+		background-color: var(--color-plush-bg);
+	}
+
+	:global([data-theme='sombre']) .bordered-container {
+		border-color: var(--color-sombre-accent);
+		background-color: var(--color-sombre-bg);
+	}
+
+	:global([data-theme='brilliant']) .bordered-container {
+		border-color: var(--color-brilliant-accent);
+		background-color: var(--color-brilliant-bg);
+	}
+
+	:global([data-theme='luminous']) .bordered-container {
+		border-color: var(--color-luminous-accent);
+		background-color: var(--color-luminous-bg);
 	}
 
 	.main-content {

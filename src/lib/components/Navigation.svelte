@@ -37,23 +37,23 @@
 		top: 0;
 		z-index: 50;
 		padding: 1rem 2rem;
-		backdrop-filter: blur(10px);
+		backdrop-filter: blur(8px);
 	}
 
 	:global([data-theme='plush']) .nav-container {
-		background: rgba(254, 243, 248, 0.8);
+		background: rgba(254, 243, 248, 0.6);
 	}
 
 	:global([data-theme='sombre']) .nav-container {
-		background: rgba(26, 26, 26, 0.8);
+		background: rgba(26, 26, 26, 0.6);
 	}
 
 	:global([data-theme='brilliant']) .nav-container {
-		background: rgba(255, 255, 255, 0.8);
+		background: rgba(255, 255, 255, 0.6);
 	}
 
 	:global([data-theme='luminous']) .nav-container {
-		background: rgba(255, 254, 245, 0.8);
+		background: rgba(255, 254, 245, 0.6);
 	}
 
 	.nav-content {
