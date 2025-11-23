@@ -33,7 +33,22 @@
 		top: 0;
 		z-index: 50;
 		padding: 1rem 2rem;
-		background: transparent;
+	}
+
+	:global([data-theme='plush']) .nav-container {
+		background: var(--color-plush-bg);
+	}
+
+	:global([data-theme='sombre']) .nav-container {
+		background: var(--color-sombre-bg);
+	}
+
+	:global([data-theme='brilliant']) .nav-container {
+		background: var(--color-brilliant-bg);
+	}
+
+	:global([data-theme='luminous']) .nav-container {
+		background: var(--color-luminous-bg);
 	}
 
 	.nav-content {

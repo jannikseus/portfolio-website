@@ -95,13 +95,12 @@
 		position: relative;
 		z-index: 1;
 		flex: 1;
-		padding-top: 4rem; /* Prevent content from going behind transparent navbar */
 	}
 
 	.theme-toggle-wrapper {
 		position: fixed;
-		bottom: 2rem;
-		right: 2rem;
+		bottom: 0;
+		right: 0;
 		z-index: 100;
 	}
 </style>
