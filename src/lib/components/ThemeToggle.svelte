@@ -37,7 +37,7 @@
 		class:active={isDark}
 		aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
 	>
-		{isDark ? '☀️' : '🌙'}
+		{isDark ? 'Light' : 'Dark'}
 	</button>
 	<button
 		onclick={toggleColorful}
@@ -45,7 +45,7 @@
 		class:active={isColorful}
 		aria-label={isColorful ? 'Switch to minimal theme' : 'Switch to colorful theme'}
 	>
-		{isColorful ? '🎨' : '⚪'}
+		{isColorful ? 'Minimal' : 'Colorful'}
 	</button>
 </div>
 
@@ -81,17 +81,19 @@
 	}
 
 	.toggle-button {
-		width: 48px;
-		height: 48px;
+		padding: 0.75rem 1.25rem;
 		border-radius: 8px;
 		border: 2px solid transparent;
 		background: transparent;
 		cursor: pointer;
-		font-size: 1.5rem;
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.025em;
 		transition: all 0.2s ease;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		white-space: nowrap;
 	}
 
 	.toggle-button:hover {

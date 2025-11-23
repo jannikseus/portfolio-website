@@ -62,6 +62,13 @@
 		overflow-y: auto;
 		display: flex;
 		flex-direction: column;
+		/* Hide scrollbar */
+		scrollbar-width: none; /* Firefox */
+		-ms-overflow-style: none; /* IE and Edge */
+	}
+
+	.content-wrapper::-webkit-scrollbar {
+		display: none; /* Chrome, Safari, Opera */
 	}
 
 	:global([data-theme='plush']) .bordered-container {
@@ -88,6 +95,7 @@
 		position: relative;
 		z-index: 1;
 		flex: 1;
+		padding-top: 4rem; /* Prevent content from going behind transparent navbar */
 	}
 
 	.theme-toggle-wrapper {
