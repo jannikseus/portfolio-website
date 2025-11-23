@@ -4,6 +4,7 @@
 	import { themeState } from '$lib/stores/theme.svelte';
 	import Navigation from '$lib/components/Navigation.svelte';
 	import ParticleField from '$lib/components/ParticleField.svelte';
+	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 
 	let { children } = $props();
 
@@ -24,26 +25,43 @@
 <div data-theme={themeState.current} class="page-background">
 	<div class="bordered-container">
 		<ParticleField color={themeColors[themeState.current]} />
-		<Navigation />
-		<main class="main-content">
-			{@render children()}
-		</main>
+		<div class="content-wrapper">
+			<Navigation />
+			<main class="main-content">
+				{@render children()}
+			</main>
+		</div>
+	</div>
+	<div class="theme-toggle-wrapper">
+		<ThemeToggle />
 	</div>
 </div>
 
 <style>
 	.page-background {
-		min-height: 100vh;
+		height: 100vh;
 		padding: 2rem;
 		transition: background-color 0.3s ease;
+		overflow: hidden;
 	}
 
 	.bordered-container {
 		position: relative;
-		min-height: calc(100vh - 4rem);
+		height: 100%;
 		border: 2px solid;
 		border-radius: 12px;
 		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.content-wrapper {
+		position: relative;
+		z-index: 1;
+		height: 100%;
+		overflow-y: auto;
+		display: flex;
+		flex-direction: column;
 	}
 
 	:global([data-theme='plush']) .bordered-container {
@@ -69,5 +87,13 @@
 	.main-content {
 		position: relative;
 		z-index: 1;
+		flex: 1;
+	}
+
+	.theme-toggle-wrapper {
+		position: fixed;
+		bottom: 2rem;
+		right: 2rem;
+		z-index: 100;
 	}
 </style>

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import ThemeSwitcher from './ThemeSwitcher.svelte';
 
 	const navItems = [
 		{ path: '/', label: 'Home' },
@@ -25,9 +24,6 @@
 				</li>
 			{/each}
 		</ul>
-		<div class="nav-theme">
-			<ThemeSwitcher />
-		</div>
 	</div>
 </nav>
 
@@ -37,30 +33,14 @@
 		top: 0;
 		z-index: 50;
 		padding: 1rem 2rem;
-		backdrop-filter: blur(8px);
-	}
-
-	:global([data-theme='plush']) .nav-container {
-		background: rgba(254, 243, 248, 0.6);
-	}
-
-	:global([data-theme='sombre']) .nav-container {
-		background: rgba(26, 26, 26, 0.6);
-	}
-
-	:global([data-theme='brilliant']) .nav-container {
-		background: rgba(255, 255, 255, 0.6);
-	}
-
-	:global([data-theme='luminous']) .nav-container {
-		background: rgba(255, 254, 245, 0.6);
+		background: transparent;
 	}
 
 	.nav-content {
 		max-width: 1200px;
 		margin: 0 auto;
 		display: flex;
-		justify-content: space-between;
+		justify-content: center;
 		align-items: center;
 	}
 
@@ -119,17 +99,7 @@
 		color: var(--color-luminous-accent);
 	}
 
-	.nav-theme {
-		display: flex;
-		align-items: center;
-	}
-
 	@media (max-width: 768px) {
-		.nav-content {
-			flex-direction: column;
-			gap: 1rem;
-		}
-
 		.nav-links {
 			gap: 1rem;
 			flex-wrap: wrap;
