@@ -34,6 +34,7 @@
 <style>
 	.page-container {
 		max-width: 700px;
+		width: 100%;
 		padding: 3rem 0;
 	}
 
