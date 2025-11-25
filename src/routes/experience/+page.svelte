@@ -1,169 +1,116 @@
 <div class="page-container">
-	<div class="content">
-		<h1 class="page-title">Experience</h1>
-		<div class="experience-list">
-			<article class="experience-item">
-				<div class="experience-header">
-					<h2>Senior Software Developer</h2>
-					<span class="experience-date">2022 - Present</span>
-				</div>
-				<h3 class="company">Tech Company Inc.</h3>
-				<p class="description">
-					Leading development of modern web applications using TypeScript, React, and Node.js.
-					Architecting scalable solutions and mentoring junior developers.
-				</p>
-				<ul class="achievements">
-					<li>Improved application performance by 40%</li>
-					<li>Led migration to microservices architecture</li>
-					<li>Implemented CI/CD pipeline reducing deployment time by 60%</li>
-				</ul>
-			</article>
+	<h1 class="page-title">Experience</h1>
+	
+	<div class="experience-list">
+		<article class="experience-item">
+			<div class="experience-header">
+				<h2 class="role">Senior Software Developer</h2>
+				<span class="date">2022 - Present</span>
+			</div>
+			<p class="company">Tech Company Inc.</p>
+			<p class="description">
+				Leading development of modern web applications using TypeScript, React, and Node.js.
+				Architecting scalable solutions and mentoring junior developers.
+			</p>
+		</article>
 
-			<article class="experience-item">
-				<div class="experience-header">
-					<h2>Software Developer</h2>
-					<span class="experience-date">2020 - 2022</span>
-				</div>
-				<h3 class="company">Startup Solutions</h3>
-				<p class="description">
-					Developed full-stack applications and RESTful APIs. Collaborated with cross-functional
-					teams to deliver high-quality software solutions.
-				</p>
-				<ul class="achievements">
-					<li>Built core features used by 10,000+ users</li>
-					<li>Reduced bug count by 50% through comprehensive testing</li>
-					<li>Contributed to open-source projects</li>
-				</ul>
-			</article>
+		<article class="experience-item">
+			<div class="experience-header">
+				<h2 class="role">Software Developer</h2>
+				<span class="date">2020 - 2022</span>
+			</div>
+			<p class="company">Startup Solutions</p>
+			<p class="description">
+				Developed full-stack applications and RESTful APIs. Collaborated with cross-functional
+				teams to deliver high-quality software solutions.
+			</p>
+		</article>
 
-			<article class="experience-item">
-				<div class="experience-header">
-					<h2>Junior Developer</h2>
-					<span class="experience-date">2018 - 2020</span>
-				</div>
-				<h3 class="company">Digital Agency</h3>
-				<p class="description">
-					Worked on client projects building responsive websites and web applications. Gained
-					experience in modern web development practices.
-				</p>
-				<ul class="achievements">
-					<li>Delivered 15+ client projects on time</li>
-					<li>Learned modern JavaScript frameworks</li>
-					<li>Improved code quality through peer reviews</li>
-				</ul>
-			</article>
-		</div>
+		<article class="experience-item">
+			<div class="experience-header">
+				<h2 class="role">Junior Developer</h2>
+				<span class="date">2018 - 2020</span>
+			</div>
+			<p class="company">Digital Agency</p>
+			<p class="description">
+				Worked on client projects building responsive websites and web applications. Gained
+				experience in modern web development practices.
+			</p>
+		</article>
 	</div>
 </div>
 
 <style>
 	.page-container {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 2rem;
-	}
-
-	.content {
-		max-width: 900px;
-		margin: 0 auto;
+		max-width: 700px;
+		padding: 3rem 0;
 	}
 
 	.page-title {
-		font-size: 3rem;
+		font-size: 2.5rem;
 		font-weight: 700;
-		margin-bottom: 2rem;
+		margin-bottom: 3rem;
 		letter-spacing: -0.02em;
-	}
-
-	[data-theme='plush'] .page-title {
-		color: var(--color-plush-accent);
-	}
-
-	[data-theme='sombre'] .page-title {
-		color: var(--color-sombre-text);
-	}
-
-	[data-theme='brilliant'] .page-title {
-		color: var(--color-brilliant-accent);
-	}
-
-	[data-theme='luminous'] .page-title {
-		color: var(--color-luminous-accent);
 	}
 
 	.experience-list {
 		display: flex;
 		flex-direction: column;
-		gap: 2rem;
+		gap: 2.5rem;
 	}
 
 	.experience-item {
-		padding: 2rem;
-		border-radius: 8px;
-		border-left: 4px solid;
+		position: relative;
+		padding-left: 1.5rem;
+		border-left: 2px solid;
+		opacity: 0.9;
 	}
 
-	[data-theme='plush'] .experience-item {
-		background-color: var(--color-plush-secondary);
+	:global([data-theme='plush']) .experience-item {
 		border-color: var(--color-plush-accent);
 	}
 
-	[data-theme='sombre'] .experience-item {
-		background-color: var(--color-sombre-secondary);
+	:global([data-theme='sombre']) .experience-item {
 		border-color: var(--color-sombre-accent);
 	}
 
-	[data-theme='brilliant'] .experience-item {
-		background-color: var(--color-brilliant-secondary);
+	:global([data-theme='brilliant']) .experience-item {
 		border-color: var(--color-brilliant-accent);
 	}
 
-	[data-theme='luminous'] .experience-item {
-		background-color: var(--color-luminous-secondary);
+	:global([data-theme='luminous']) .experience-item {
 		border-color: var(--color-luminous-accent);
 	}
 
 	.experience-header {
 		display: flex;
 		justify-content: space-between;
-		align-items: flex-start;
-		margin-bottom: 0.5rem;
+		align-items: baseline;
 		flex-wrap: wrap;
-		gap: 1rem;
+		gap: 0.5rem;
+		margin-bottom: 0.25rem;
 	}
 
-	.experience-item h2 {
-		font-size: 1.5rem;
+	.role {
+		font-size: 1.1rem;
 		font-weight: 600;
 	}
 
-	.experience-date {
-		font-size: 0.9rem;
-		opacity: 0.7;
-		font-weight: 500;
+	.date {
+		font-size: 0.85rem;
+		opacity: 0.6;
 	}
 
 	.company {
-		font-size: 1.1rem;
+		font-size: 0.95rem;
 		font-weight: 500;
-		margin-bottom: 1rem;
-		opacity: 0.8;
+		opacity: 0.7;
+		margin-bottom: 0.75rem;
 	}
 
 	.description {
-		line-height: 1.8;
-		margin-bottom: 1rem;
-		opacity: 0.9;
-	}
-
-	.achievements {
-		list-style: disc;
-		margin-left: 1.5rem;
-		line-height: 1.8;
+		line-height: 1.7;
 		opacity: 0.85;
-	}
-
-	.achievements li {
-		margin-bottom: 0.5rem;
+		font-size: 0.95rem;
 	}
 </style>

@@ -94,6 +94,7 @@
 		position: relative;
 		z-index: 1;
 		flex: 1;
+		padding: 0 4rem;
 	}
 
 	.theme-toggle-wrapper {
