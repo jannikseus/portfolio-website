@@ -49,7 +49,6 @@
 		position: relative;
 		height: 100%;
 		border: 2px solid;
-		border-radius: 12px;
 		overflow: hidden;
 		display: flex;
 		flex-direction: column;
