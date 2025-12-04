@@ -48,7 +48,7 @@
 	.bordered-container {
 		position: relative;
 		height: 100%;
-		border: 2px solid;
+		border: 1px solid;
 		overflow: hidden;
 		display: flex;
 		flex-direction: column;

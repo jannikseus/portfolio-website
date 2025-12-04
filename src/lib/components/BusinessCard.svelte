@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 
 	const MAX_ROTATION_DEGREES = 15;
 
@@ -61,8 +60,8 @@
 
 <style>
 	.card-container {
-		width: 350px;
-		height: 200px;
+		width: 450px;
+		height: 300px;
 		cursor: pointer;
 		transition: transform 0.1s ease-out;
 		transform-style: preserve-3d;
@@ -82,22 +81,22 @@
 
 	:global([data-theme='plush']) .card-content {
 		background: linear-gradient(135deg, var(--color-plush-secondary), var(--color-plush-bg));
-		border: 2px solid var(--color-plush-accent);
+		border: 1px solid var(--color-plush-accent);
 	}
 
 	:global([data-theme='sombre']) .card-content {
 		background: linear-gradient(135deg, var(--color-sombre-secondary), var(--color-sombre-bg));
-		border: 2px solid var(--color-sombre-accent);
+		border: 1px solid var(--color-sombre-accent);
 	}
 
 	:global([data-theme='brilliant']) .card-content {
 		background: linear-gradient(135deg, var(--color-brilliant-secondary), var(--color-brilliant-bg));
-		border: 2px solid var(--color-brilliant-accent);
+		border: 1px solid var(--color-brilliant-accent);
 	}
 
 	:global([data-theme='luminous']) .card-content {
 		background: linear-gradient(135deg, var(--color-luminous-secondary), var(--color-luminous-bg));
-		border: 2px solid var(--color-luminous-accent);
+		border: 1px solid var(--color-luminous-accent);
 	}
 
 	.card-front {
