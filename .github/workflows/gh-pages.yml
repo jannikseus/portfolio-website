@@ -19,7 +19,7 @@ concurrency:
 env:
   # Wenn du auf @sveltejs/adapter-static wechselst setze hier: 'build'
   # Sonst als Workaround (wie in deinem Build-Output): '.svelte-kit/output/client'
-  BUILD_DIR: '.svelte-kit/output/client'
+  BUILD_DIR: 'build'
 
 jobs:
   test:
