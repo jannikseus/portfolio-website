@@ -1,15 +1,18 @@
+<script lang="ts">
+	import * as m from "$lib/paraglide/messages";
+</script>
+
 <div class="page-container">
-	<h1 class="page-title">Works</h1>
+	<h1 class="page-title">{m.works_title()}</h1>
 	
 	<div class="works-list">
 		<article class="work-item">
 			<div class="work-header">
-				<h2 class="work-title">E-Commerce Platform</h2>
-				<span class="work-type">Full Stack</span>
+				<h2 class="work-title">{m.work_1_title()}</h2>
+				<span class="work-type">{m.work_1_type()}</span>
 			</div>
 			<p class="work-description">
-				A modern e-commerce platform built with React, Node.js, and MongoDB. Features include
-				user authentication, product management, shopping cart, and payment integration.
+				{m.work_1_description()}
 			</p>
 			<div class="work-tech">
 				<span>React</span>
@@ -21,12 +24,11 @@
 
 		<article class="work-item">
 			<div class="work-header">
-				<h2 class="work-title">Task Management App</h2>
-				<span class="work-type">Frontend</span>
+				<h2 class="work-title">{m.work_2_title()}</h2>
+				<span class="work-type">{m.work_2_type()}</span>
 			</div>
 			<p class="work-description">
-				A responsive task management application with drag-and-drop functionality, built using
-				SvelteKit and TailwindCSS. Supports team collaboration and real-time updates.
+				{m.work_2_description()}
 			</p>
 			<div class="work-tech">
 				<span>SvelteKit</span>
@@ -37,12 +39,11 @@
 
 		<article class="work-item">
 			<div class="work-header">
-				<h2 class="work-title">Weather Dashboard</h2>
-				<span class="work-type">API Integration</span>
+				<h2 class="work-title">{m.work_3_title()}</h2>
+				<span class="work-type">{m.work_3_type()}</span>
 			</div>
 			<p class="work-description">
-				A beautiful weather dashboard that displays current weather and forecasts for multiple
-				locations. Integrates with OpenWeatherMap API and features animated weather icons.
+				{m.work_3_description()}
 			</p>
 			<div class="work-tech">
 				<span>TypeScript</span>
@@ -53,12 +54,11 @@
 
 		<article class="work-item">
 			<div class="work-header">
-				<h2 class="work-title">Blog CMS</h2>
-				<span class="work-type">Full Stack</span>
+				<h2 class="work-title">{m.work_4_title()}</h2>
+				<span class="work-type">{m.work_4_type()}</span>
 			</div>
 			<p class="work-description">
-				A headless CMS for managing blog content with a rich text editor, media library, and
-				SEO optimization. Built with Next.js and PostgreSQL.
+				{m.work_4_description()}
 			</p>
 			<div class="work-tech">
 				<span>Next.js</span>

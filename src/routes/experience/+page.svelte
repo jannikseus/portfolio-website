@@ -1,40 +1,41 @@
+<script lang="ts">
+	import * as m from "$lib/paraglide/messages";
+</script>
+
 <div class="page-container">
-	<h1 class="page-title">Experience</h1>
+	<h1 class="page-title">{m.experience_title()}</h1>
 	
 	<div class="experience-list">
 		<article class="experience-item">
 			<div class="experience-header">
-				<h2 class="role">Senior Software Developer</h2>
-				<span class="date">2022 - Present</span>
+				<h2 class="role">{m.experience_1_role()}</h2>
+				<span class="date">{m.experience_1_date()}</span>
 			</div>
-			<p class="company">Tech Company Inc.</p>
+			<p class="company">{m.experience_1_company()}</p>
 			<p class="description">
-				Leading development of modern web applications using TypeScript, React, and Node.js.
-				Architecting scalable solutions and mentoring junior developers.
+				{m.experience_1_description()}
 			</p>
 		</article>
 
 		<article class="experience-item">
 			<div class="experience-header">
-				<h2 class="role">Software Developer</h2>
-				<span class="date">2020 - 2022</span>
+				<h2 class="role">{m.experience_2_role()}</h2>
+				<span class="date">{m.experience_2_date()}</span>
 			</div>
-			<p class="company">Startup Solutions</p>
+			<p class="company">{m.experience_2_company()}</p>
 			<p class="description">
-				Developed full-stack applications and RESTful APIs. Collaborated with cross-functional
-				teams to deliver high-quality software solutions.
+				{m.experience_2_description()}
 			</p>
 		</article>
 
 		<article class="experience-item">
 			<div class="experience-header">
-				<h2 class="role">Junior Developer</h2>
-				<span class="date">2018 - 2020</span>
+				<h2 class="role">{m.experience_3_role()}</h2>
+				<span class="date">{m.experience_3_date()}</span>
 			</div>
-			<p class="company">Digital Agency</p>
+			<p class="company">{m.experience_3_company()}</p>
 			<p class="description">
-				Worked on client projects building responsive websites and web applications. Gained
-				experience in modern web development practices.
+				{m.experience_3_description()}
 			</p>
 		</article>
 	</div>

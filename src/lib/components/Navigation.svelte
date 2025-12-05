@@ -1,16 +1,24 @@
 <script lang="ts">
   import { page } from "$app/stores";
   import { base } from "$app/paths";
+  import * as m from "$lib/paraglide/messages";
 
   const navItems = [
-    { path: "/", label: "Home" },
-    { path: "/about", label: "About" },
+    { path: "/", labelKey: "nav_home" },
+    { path: "/about", labelKey: "nav_about" },
     {
       path: "/experience",
-      label: "Experience",
+      labelKey: "nav_experience",
     },
-    { path: "/works", label: "Works" },
-  ];
+    { path: "/works", labelKey: "nav_works" },
+  ] as const;
+
+  const labelFunctions = {
+    nav_home: m.nav_home,
+    nav_about: m.nav_about,
+    nav_experience: m.nav_experience,
+    nav_works: m.nav_works,
+  };
 
   function getHref(itemPath: string): string {
     if (itemPath === "/") {
@@ -30,14 +38,14 @@
 <nav class="nav-container">
   <div class="nav-content">
     <ul class="nav-links">
-      {#each navItems as item}
+      {#each navItems as item (item.path)}
         <li>
           <a
             href={getHref(item.path)}
             class="nav-link"
             class:active={isActive($page.url.pathname, item.path)}
           >
-            {item.label}
+            {labelFunctions[item.labelKey]()}
           </a>
         </li>
       {/each}
