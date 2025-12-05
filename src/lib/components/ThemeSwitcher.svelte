@@ -14,13 +14,17 @@
 			themeState.set(value as Theme);
 		}
 	}
+
+	const currentThemeLabel = $derived(
+		themes.find((t) => t.name === themeState.current)?.label ?? 'Select theme'
+	);
 </script>
 
 <div class="theme-switcher">
 	<label for="theme-select" class="text-sm font-medium">Theme:</label>
 	<Select.Root type="single" value={themeState.current} onValueChange={handleValueChange}>
 		<Select.Trigger class="w-32">
-			<Select.Value placeholder="Select theme" />
+			<span>{currentThemeLabel}</span>
 		</Select.Trigger>
 		<Select.Content>
 			{#each themes as theme (theme.name)}

@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { Select as SelectPrimitive } from "bits-ui";
 	import { cn } from "$lib/utils.js";
-	import { flyAndScale } from "$lib/utils/transitions.js";
+	import { scale, fly } from "svelte/transition";
 
 	let {
 		ref = $bindable(null),
 		class: className,
 		sideOffset = 4,
+		children,
 		...restProps
 	}: SelectPrimitive.ContentProps = $props();
 </script>
@@ -16,19 +17,17 @@
 		bind:ref
 		{sideOffset}
 		class={cn(
-			"relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+			"relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-md",
 			className
 		)}
-		inTransition={flyAndScale}
-		inTransitionConfig={{ y: -8, duration: 150 }}
-		outTransition={flyAndScale}
-		outTransitionConfig={{ y: 8, duration: 150 }}
 		{...restProps}
 	>
-		<SelectPrimitive.Viewport
-			class={cn("p-1")}
+		<div
+			class="p-1"
+			in:scale={{ duration: 150, start: 0.95 }}
+			out:fly={{ duration: 100, y: -4 }}
 		>
-			{@render restProps.children?.()}
-		</SelectPrimitive.Viewport>
+			{@render children?.()}
+		</div>
 	</SelectPrimitive.Content>
 </SelectPrimitive.Portal>

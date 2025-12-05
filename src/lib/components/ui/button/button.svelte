@@ -45,6 +45,6 @@
 
 <ButtonPrimitive.Root
 	bind:ref
-	class={cn(buttonVariants({ variant, size, className }))}
+	class={cn(buttonVariants({ variant, size }), className)}
 	{...restProps}
 />
