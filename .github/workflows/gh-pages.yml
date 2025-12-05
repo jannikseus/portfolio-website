@@ -10,21 +10,20 @@ on:
 permissions:
   contents: read
   pages: write
-  id-token: write
 
 concurrency:
   group: ci-deploy-${{ github.ref }}
   cancel-in-progress: true
 
 env:
-  BUILD_DIR: 'build'
+  # Wenn du auf @sveltejs/adapter-static wechselst setze hier: 'build'
+  # Sonst als Workaround (wie in deinem Build-Output): '.svelte-kit/output/client'
+  BUILD_DIR: '.svelte-kit/output/client'
 
 jobs:
   test:
     name: Test (bun)
     runs-on: ubuntu-latest
-    # Wenn du einen self-hosted, leichten Runner willst, ersetze die obige Zeile z.B. mit:
-    # runs-on: [self-hosted, linux, x86_64]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -37,7 +36,7 @@ jobs:
       - name: Install dependencies (bun)
         run: bun install
 
-      - name: Run tests (only if package.json has a test script)
+      - name: Run tests (if present)
         run: |
           if [ -f package.json ] && grep -q '"test"' package.json; then
             bun test
@@ -69,7 +68,7 @@ jobs:
       - name: Install dependencies (bun)
         run: bun install
 
-      - name: Build (if build script exists)
+      - name: Build (bun)
         run: |
           if [ -f package.json ] && grep -q '"build"' package.json; then
             bun run build
@@ -78,9 +77,9 @@ jobs:
           fi
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ${{ env.BUILD_DIR }}
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
