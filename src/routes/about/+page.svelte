@@ -1,32 +1,32 @@
+<script lang="ts">
+	import * as m from "$lib/paraglide/messages";
+</script>
+
 <div class="page-container">
-	<h1 class="page-title">About</h1>
+	<h1 class="page-title">{m.about_title()}</h1>
 	
 	<section class="about-section">
 		<p class="about-text">
-			I'm a passionate software developer dedicated to creating elegant and efficient solutions.
-			With a focus on clean code and user experience, I strive to build applications that make
-			a difference.
+			{m.about_intro()}
 		</p>
 	</section>
 
 	<section class="about-section">
-		<h2 class="section-title">Skills</h2>
+		<h2 class="section-title">{m.about_skills_title()}</h2>
 		<div class="skills-grid">
-			<span class="skill-item">TypeScript / JavaScript</span>
-			<span class="skill-item">Svelte / SvelteKit</span>
-			<span class="skill-item">React / Next.js</span>
-			<span class="skill-item">Node.js</span>
-			<span class="skill-item">TailwindCSS</span>
-			<span class="skill-item">Git / GitHub</span>
+			<span class="skill-item">{m.about_skill_typescript()}</span>
+			<span class="skill-item">{m.about_skill_svelte()}</span>
+			<span class="skill-item">{m.about_skill_react()}</span>
+			<span class="skill-item">{m.about_skill_nodejs()}</span>
+			<span class="skill-item">{m.about_skill_tailwind()}</span>
+			<span class="skill-item">{m.about_skill_git()}</span>
 		</div>
 	</section>
 
 	<section class="about-section">
-		<h2 class="section-title">Approach</h2>
+		<h2 class="section-title">{m.about_approach_title()}</h2>
 		<p class="about-text">
-			I believe in writing code that is not only functional but also maintainable and scalable.
-			My approach combines best practices with innovative thinking to deliver high-quality
-			solutions.
+			{m.about_approach_text()}
 		</p>
 	</section>
 </div>
