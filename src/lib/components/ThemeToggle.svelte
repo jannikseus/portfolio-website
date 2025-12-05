@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { themeState, type Theme } from '$lib/stores/theme.svelte';
+	import { themeState } from '$lib/stores/theme.svelte';
+	import { Button } from '$lib/components/ui/button';
 
 	// Theme mapping (corrected):
 	// brilliant = light + colorful (blue)
@@ -32,75 +33,35 @@
 
 <div class="theme-toggle">
 	<span class="theme-label">Theme:</span>
-	<button
+	<Button
 		onclick={toggleDark}
-		class="toggle-button"
-		class:active={isDark}
+		variant={isDark ? "default" : "ghost"}
+		size="sm"
 		aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
 	>
 		{isDark ? 'Light' : 'Dark'}
-	</button>
-	<button
+	</Button>
+	<Button
 		onclick={toggleColorful}
-		class="toggle-button"
-		class:active={isColorful}
+		variant={isColorful ? "default" : "ghost"}
+		size="sm"
 		aria-label={isColorful ? 'Switch to minimal theme' : 'Switch to colorful theme'}
 	>
 		{isColorful ? 'Minimal' : 'Colorful'}
-	</button>
+	</Button>
 </div>
 
 <style>
 	.theme-toggle {
 		display: flex;
-		gap: 1rem;
+		gap: 0.5rem;
 		align-items: center;
+		padding: 0.5rem;
 	}
 
 	.theme-label {
 		font-size: 0.875rem;
 		font-weight: 500;
 		opacity: 0.8;
-	}
-
-	.toggle-button {
-		padding: 0.5rem 0.75rem;
-		border-radius: 6px;
-		border: none;
-		background: transparent;
-		cursor: pointer;
-		font-size: 0.875rem;
-		font-weight: 500;
-		transition: all 0.2s ease;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		white-space: nowrap;
-	}
-
-	.toggle-button:hover {
-		opacity: 0.7;
-	}
-
-	.toggle-button.active {
-		font-weight: 600;
-		text-decoration: underline;
-		text-underline-offset: 4px;
-	}
-
-	:global([data-theme='plush']) .toggle-button {
-		color: var(--color-plush-accent);
-	}
-
-	:global([data-theme='sombre']) .toggle-button {
-		color: var(--color-sombre-accent);
-	}
-
-	:global([data-theme='brilliant']) .toggle-button {
-		color: var(--color-brilliant-accent);
-	}
-
-	:global([data-theme='luminous']) .toggle-button {
-		color: var(--color-luminous-accent);
 	}
 </style>

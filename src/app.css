@@ -1,70 +1,202 @@
 @import "tailwindcss";
 
+/* Tailwind v4 CSS variable theme integration */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
 /* Base typography */
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-	/* Base colors for themes - updated to match reference */
-	--color-plush-bg: #fef3f8;
-	--color-plush-text: #2d1b2e;
-	--color-plush-accent: #e91e8c;
-	--color-plush-secondary: #f6c9dd;
-	
-	--color-sombre-bg: #1a1a1a;
-	--color-sombre-text: #e0e0e0;
-	--color-sombre-accent: #808080;
-	--color-sombre-secondary: #2d2d2d;
-	
-	/* Brilliant theme - light colorful with vibrant colors */
-	--color-brilliant-bg: #ffffff;
-	--color-brilliant-text: #111111;
-	--color-brilliant-accent: rgb(57,125,173); /* bluish from reference */
-	--color-brilliant-secondary: #e6f0ff;
-	
-	/* Luminous theme - dark colorful with bright pastels */
-	--color-luminous-bg: #1a1a1a;
-	--color-luminous-text: #e0e0e0;
-	--color-luminous-accent: rgb(255,255,186); /* banana from reference */
-	--color-luminous-secondary: #2d2d2d;
+  /* Base colors for themes - updated to match reference */
+  --color-plush-bg: #fef3f8;
+  --color-plush-text: #2d1b2e;
+  --color-plush-accent: #e91e8c;
+  --color-plush-secondary: #f6c9dd;
+
+  --color-sombre-bg: #1a1a1a;
+  --color-sombre-text: #e0e0e0;
+  --color-sombre-accent: #808080;
+  --color-sombre-secondary: #2d2d2d;
+
+  /* Brilliant theme - light colorful with vibrant colors */
+  --color-brilliant-bg: #ffffff;
+  --color-brilliant-text: #111111;
+  --color-brilliant-accent: rgb(57, 125, 173); /* bluish from reference */
+  --color-brilliant-secondary: #e6f0ff;
+
+  /* Luminous theme - dark colorful with bright pastels */
+  --color-luminous-bg: #1a1a1a;
+  --color-luminous-text: #e0e0e0;
+  --color-luminous-accent: rgb(255, 255, 186); /* banana from reference */
+  --color-luminous-secondary: #2d2d2d;
+
+  /* shadcn-svelte base CSS variables */
+  --radius: 0.5rem;
+}
+
+/* Plush theme - shadcn-svelte variables */
+[data-theme="plush"] {
+  --background: 333 85% 98%;
+  --foreground: 304 24% 15%;
+  --muted: 333 60% 92%;
+  --muted-foreground: 304 15% 40%;
+  --popover: 333 85% 98%;
+  --popover-foreground: 304 24% 15%;
+  --card: 333 85% 98%;
+  --card-foreground: 304 24% 15%;
+  --border: 333 50% 85%;
+  --input: 333 50% 85%;
+  --primary: 325 87% 52%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 333 60% 92%;
+  --secondary-foreground: 304 24% 15%;
+  --accent: 333 60% 92%;
+  --accent-foreground: 325 87% 52%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --ring: 325 87% 52%;
+}
+
+/* Sombre theme - shadcn-svelte variables */
+[data-theme="sombre"] {
+  --background: 0 0% 10%;
+  --foreground: 0 0% 88%;
+  --muted: 0 0% 18%;
+  --muted-foreground: 0 0% 63%;
+  --popover: 0 0% 10%;
+  --popover-foreground: 0 0% 88%;
+  --card: 0 0% 10%;
+  --card-foreground: 0 0% 88%;
+  --border: 0 0% 25%;
+  --input: 0 0% 25%;
+  --primary: 0 0% 50%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 18%;
+  --secondary-foreground: 0 0% 88%;
+  --accent: 0 0% 18%;
+  --accent-foreground: 0 0% 88%;
+  --destructive: 0 62% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --ring: 0 0% 50%;
+}
+
+/* Brilliant theme - shadcn-svelte variables */
+[data-theme="brilliant"] {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 7%;
+  --muted: 210 40% 93%;
+  --muted-foreground: 210 20% 40%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 7%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 7%;
+  --border: 210 40% 85%;
+  --input: 210 40% 85%;
+  --primary: 205 50% 45%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 40% 93%;
+  --secondary-foreground: 0 0% 7%;
+  --accent: 210 40% 93%;
+  --accent-foreground: 205 50% 45%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --ring: 205 50% 45%;
+}
+
+/* Luminous theme - shadcn-svelte variables */
+[data-theme="luminous"] {
+  --background: 0 0% 10%;
+  --foreground: 0 0% 88%;
+  --muted: 0 0% 18%;
+  --muted-foreground: 0 0% 63%;
+  --popover: 0 0% 10%;
+  --popover-foreground: 0 0% 88%;
+  --card: 0 0% 10%;
+  --card-foreground: 0 0% 88%;
+  --border: 0 0% 25%;
+  --input: 0 0% 25%;
+  --primary: 60 100% 87%;
+  --primary-foreground: 0 0% 10%;
+  --secondary: 0 0% 18%;
+  --secondary-foreground: 0 0% 88%;
+  --accent: 0 0% 18%;
+  --accent-foreground: 60 100% 87%;
+  --destructive: 0 62% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --ring: 60 100% 87%;
 }
 
 body {
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-	line-height: 1.6;
-	transition: background-color 0.3s ease, color 0.3s ease;
-	overflow: hidden;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  line-height: 1.6;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  overflow: hidden;
 }
 
 /* Theme styles - using data attributes */
 [data-theme="plush"] {
-	background-color: var(--color-plush-bg);
-	color: var(--color-plush-text);
+  background-color: var(--color-plush-bg);
+  color: var(--color-plush-text);
 }
 
 [data-theme="sombre"] {
-	background-color: var(--color-sombre-bg);
-	color: var(--color-sombre-text);
+  background-color: var(--color-sombre-bg);
+  color: var(--color-sombre-text);
 }
 
 [data-theme="brilliant"] {
-	background-color: var(--color-brilliant-bg);
-	color: var(--color-brilliant-text);
+  background-color: var(--color-brilliant-bg);
+  color: var(--color-brilliant-text);
 }
 
 [data-theme="luminous"] {
-	background-color: var(--color-luminous-bg);
-	color: var(--color-luminous-text);
+  background-color: var(--color-luminous-bg);
+  color: var(--color-luminous-text);
 }
 
 /* Smooth animations */
 @media (prefers-reduced-motion: no-preference) {
-	[data-theme] {
-		transition-property: background-color, color;
-		transition-duration: 0.3s;
-		transition-timing-function: ease-in-out;
-	}
+  [data-theme] {
+    transition-property: background-color, color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+  }
 }

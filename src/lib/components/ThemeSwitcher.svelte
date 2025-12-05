@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { themeState, type Theme } from '$lib/stores/theme.svelte';
+	import * as Select from '$lib/components/ui/select';
 
 	const themes: { name: Theme; label: string }[] = [
 		{ name: 'plush', label: 'Plush' },
@@ -7,20 +8,26 @@
 		{ name: 'brilliant', label: 'Brilliant' },
 		{ name: 'luminous', label: 'Luminous' }
 	];
+
+	function handleValueChange(value: string | undefined) {
+		if (value) {
+			themeState.set(value as Theme);
+		}
+	}
 </script>
 
 <div class="theme-switcher">
 	<label for="theme-select" class="text-sm font-medium">Theme:</label>
-	<select
-		id="theme-select"
-		value={themeState.current}
-		onchange={(e) => themeState.set(e.currentTarget.value as Theme)}
-		class="ml-2 px-3 py-1 rounded border"
-	>
-		{#each themes as theme}
-			<option value={theme.name}>{theme.label}</option>
-		{/each}
-	</select>
+	<Select.Root type="single" value={themeState.current} onValueChange={handleValueChange}>
+		<Select.Trigger class="w-32">
+			<Select.Value placeholder="Select theme" />
+		</Select.Trigger>
+		<Select.Content>
+			{#each themes as theme (theme.name)}
+				<Select.Item value={theme.name}>{theme.label}</Select.Item>
+			{/each}
+		</Select.Content>
+	</Select.Root>
 </div>
 
 <style>
@@ -28,50 +35,5 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-	}
-
-	select {
-		cursor: pointer;
-		transition: all 0.2s ease;
-	}
-	
-	:global([data-theme='plush']) select {
-		border-color: var(--color-plush-accent);
-		color: var(--color-plush-text);
-		background-color: var(--color-plush-secondary);
-	}
-	
-	:global([data-theme='sombre']) select {
-		border-color: var(--color-sombre-accent);
-		color: var(--color-sombre-text);
-		background-color: var(--color-sombre-secondary);
-	}
-	
-	:global([data-theme='brilliant']) select {
-		border-color: var(--color-brilliant-accent);
-		color: var(--color-brilliant-text);
-		background-color: var(--color-brilliant-secondary);
-	}
-	
-	:global([data-theme='luminous']) select {
-		border-color: var(--color-luminous-accent);
-		color: var(--color-luminous-text);
-		background-color: var(--color-luminous-secondary);
-	}
-
-	:global([data-theme='plush']) label {
-		color: var(--color-plush-text);
-	}
-	
-	:global([data-theme='sombre']) label {
-		color: var(--color-sombre-text);
-	}
-	
-	:global([data-theme='brilliant']) label {
-		color: var(--color-brilliant-text);
-	}
-	
-	:global([data-theme='luminous']) label {
-		color: var(--color-luminous-text);
 	}
 </style>
