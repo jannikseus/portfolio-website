@@ -56,7 +56,7 @@
 		display: flex;
 		gap: 0.5rem;
 		align-items: center;
-		padding: 0.5rem;
+		padding-right: 2rem;
 	}
 
 	.theme-label {
