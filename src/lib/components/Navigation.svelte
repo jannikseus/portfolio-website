@@ -11,6 +11,20 @@
     },
     { path: "/works", label: "Works" },
   ];
+
+  function getHref(itemPath: string): string {
+    if (itemPath === "/") {
+      return base || "/";
+    }
+    return base + itemPath;
+  }
+
+  function isActive(pathname: string, itemPath: string): boolean {
+    if (itemPath === "/") {
+      return pathname === base || pathname === base + "/";
+    }
+    return pathname === base + itemPath;
+  }
 </script>
 
 <nav class="nav-container">
@@ -19,9 +33,9 @@
       {#each navItems as item}
         <li>
           <a
-            href={base + item.path}
+            href={getHref(item.path)}
             class="nav-link"
-            class:active={$page.url.pathname === base + item.path}
+            class:active={isActive($page.url.pathname, item.path)}
           >
             {item.label}
           </a>
