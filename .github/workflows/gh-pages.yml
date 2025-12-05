@@ -1,0 +1,86 @@
+name: CI / Deploy to GitHub Pages
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - '**'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ci-deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  BUILD_DIR: 'build'
+
+jobs:
+  test:
+    name: Test (bun)
+    runs-on: ubuntu-latest
+    # Wenn du einen self-hosted, leichten Runner willst, ersetze die obige Zeile z.B. mit:
+    # runs-on: [self-hosted, linux, x86_64]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Bun
+        run: |
+          curl -fsSL https://bun.sh/install | bash
+          echo "${HOME}/.bun/bin" >> $GITHUB_PATH
+
+      - name: Install dependencies (bun)
+        run: bun install
+
+      - name: Run tests (only if package.json has a test script)
+        run: |
+          if [ -f package.json ] && grep -q '"test"' package.json; then
+            bun test
+          else
+            echo "no test script"
+          fi
+
+      - name: Upload test results (optional)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-logs
+          path: ./test-results || ./
+
+  deploy:
+    name: Build and Deploy to GitHub Pages (bun)
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Bun
+        run: |
+          curl -fsSL https://bun.sh/install | bash
+          echo "${HOME}/.bun/bin" >> $GITHUB_PATH
+
+      - name: Install dependencies (bun)
+        run: bun install
+
+      - name: Build (if build script exists)
+        run: |
+          if [ -f package.json ] && grep -q '"build"' package.json; then
+            bun run build
+          else
+            echo "no build script"
+          fi
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ${{ env.BUILD_DIR }}
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
