@@ -28,7 +28,7 @@
 		</Select.Trigger>
 		<Select.Content>
 			{#each themes as theme (theme.name)}
-				<Select.Item value={theme.name}>{theme.label}</Select.Item>
+				<Select.Item value={theme.name} label={theme.label} />
 			{/each}
 		</Select.Content>
 	</Select.Root>
