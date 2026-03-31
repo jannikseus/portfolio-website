@@ -1,4 +1,5 @@
 <script lang="ts">
+	import * as m from "$lib/paraglide/messages";
 
 	const MAX_ROTATION_DEGREES = 15;
 
@@ -48,11 +49,11 @@
 >
 	<div class="card-content">
 		<div class="card-front">
-			<h2 class="name">Your Name</h2>
-			<p class="title">Software Developer</p>
+			<h2 class="name">{m.business_card_name()}</h2>
+			<p class="title">{m.business_card_title()}</p>
 			<div class="contact">
-				<p>email@example.com</p>
-				<p>github.com/username</p>
+				<p>{m.business_card_email()}</p>
+				<p>{m.business_card_github()}</p>
 			</div>
 		</div>
 	</div>

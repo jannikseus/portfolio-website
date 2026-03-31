@@ -5,6 +5,8 @@
 	import Navigation from '$lib/components/Navigation.svelte';
 	import ParticleField from '$lib/components/ParticleField.svelte';
 	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
+	import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
+	import * as m from '$lib/paraglide/messages';
 
 	let { children } = $props();
 
@@ -19,7 +21,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<title>Portfolio</title>
+	<title>{m.page_title()}</title>
 </svelte:head>
 
 <div data-theme={themeState.current} class="page-background">
@@ -32,7 +34,8 @@
 			</main>
 		</div>
 	</div>
-	<div class="theme-toggle-wrapper">
+	<div class="controls-wrapper">
+		<LanguageSwitcher />
 		<ThemeToggle />
 	</div>
 </div>
@@ -100,10 +103,13 @@
 		align-items: center;
 	}
 
-	.theme-toggle-wrapper {
+	.controls-wrapper {
 		position: fixed;
 		bottom: 0;
 		right: 0;
 		z-index: 100;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
 	}
 </style>
